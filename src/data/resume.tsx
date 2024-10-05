@@ -8,18 +8,18 @@ export const DATA = {
   location: "Hyderabad, IN",
   locationLink: "https://www.google.com/maps/place/hyderabad",
   description:
-    "Full-stack developer and parttime bounty hunter. Passionate about crafting a secure and innovative web solutions for business",
+    "Full-stack developer and part-time bounty hunter. I am passionate about crafting secure and innovative web solutions for businesses.",
   summary:
-    "Currently working as **Technical Lead** at **Oracle**, resposnible for *UI component development*,  architectural enhancements creating changes in **backend system** which uses node.js. Im specialized in **React.js** and **micro-frontend architecture**, and have a proven track record of optimizing app performance and leading significant projects. I’m passionate about leveraging technology to improve developer productivity and streamline processes.",
+    "Currently working as a **Technical Lead** at **Oracle**, responsible for *UI component development*, architectural enhancements, and creating changes in the **backend system** that uses Node.js. I specialize in **React.js** and **micro-frontend architecture**. I have a proven track record of optimizing app performance and leading significant projects. I'm passionate about leveraging technology to improve developer productivity and streamline processes.",
   avatarUrl: "/raja-2.jpg",
   skills: [
     "React",
     "Node.js",
-    "Typescript",
+    "TypeScript",
     "Springboot",
     "gRPC",
     "GraphQL",
-    "socket.io",
+    "Socket.IO",
     "HTML5",
     "CSS3",
     "Webpack",
@@ -84,7 +84,7 @@ export const DATA = {
       start: "Jul 2021",
       end: "Present",
       description:
-        "Developed reusable UI components with React.js, adhering to 100% Oracle Redwood standards, which were widely adopted across CX teams• Led the integration of existing React components into Oracle JET framework, leveraging Preact-Compact for enhanced performance• Extended micro-frontend architecture to include OJET modules alongside React, enabling seamless component reuse and flexibility• Successfully migrated apps from VMs to a cloud-based setup using Kubernetes.",
+        "Developed reusable UI components with React.js, adhering to 100% Oracle Redwood standards, which were widely adopted across CX teams• Led the integration of existing React components into the Oracle JET framework, leveraging Preact-Compact for enhanced performance• Extended micro-frontend architecture to include OJET modules alongside React, enabling seamless component reuse and flexibility• Successfully migrated apps from VMs to a cloud-based setup using Kubernetes.",
     },
     {
       company: "BNY Mellon Technology Pvt Ltd",
@@ -96,7 +96,7 @@ export const DATA = {
       start: "Oct 2017",
       end: "Jul 2021",
       description:
-        "Spearheaded development of Orchestration portal handling 100k+ records• Improved app performance by 50% through code optimization, caching, and cloud infrastructure enhancements• Led greenfield transformation to containerized architecture with CI/CD pipeline, reducing deployment time by 30% and streamlining release cycles by 25%• Engineered productivity-enhancing UI tool for CLI-based deployment using React and Tailwind CSS, reducing manual errors by 100%",
+        "Spearheaded the development of an Orchestration portal handling 100k+ records• Improved app performance by 50% through code optimization, caching, and cloud infrastructure enhancements• Led a greenfield transformation to a containerized architecture with a CI/CD pipeline, reducing deployment time by 30% and streamlining release cycles by 25%• Engineered a productivity-enhancing UI tool for CLI-based deployment using React and Tailwind CSS, reducing manual errors by 100%.",
     },
     {
       company: "KRDS",
@@ -108,7 +108,7 @@ export const DATA = {
       start: "Aug 2016",
       end: "Oct 2017",
       description:
-        "Web App and Chat Bot Development: Implemented web applications and chatbots for brands such as AXA and Thomas Cook for their social media promotion• AXA Employee Customer Engagement Web App: Contributed to building a web application that manages AXA employees’ customer engagement via Facebook Business Manager. Utilized The Facebook Business Manager API to create and manage 1000+ Facebook accounts for AXA employees. This system enables AXA to monitor and post insurance-related information directly from insurance agent profiles",
+        "Developed web applications and chatbots for brands such as AXA and Thomas Cook for their social media promotion• AXA Employee Customer Engagement Web App: Contributed to building a web application that manages AXA employees' customer engagement via Facebook Business Manager. Utilized The Facebook Business Manager API to create and manage 1000+ Facebook accounts for AXA employees. This system enables AXA to monitor and post insurance-related information directly from insurance agent profiles.",
     },
     {
       company: "TCS",
@@ -140,7 +140,7 @@ export const DATA = {
       dates: "September 24 - 25, 2022",
       active: false,
       description:
-        "Competed in the BountyCon 2022 CTF Competition, a series of challenging security-related challenges. Ranked among the top scorers and was invited to attend the main event as part of the exclusive group of participants.Attended BountyCon Singapore 2022, a leading invitation-only security conference, where I had the opportunity to network with industry experts and learn from top security researchers.",
+        "Competed in the BountyCon 2022 CTF Competition, a series of challenging security-related challenges. Ranked among the top scorers and was invited to attend the main event as part of an exclusive group of participants.Attended BountyCon Singapore 2022, a leading invitation-only security conference, where I had the opportunity to network with industry experts and learn from top security researchers.",
       technologies: [
         "Fiddler",
         "git",
@@ -303,11 +303,11 @@ export const DATA = {
         ],
     },
     {
-      title: "Present a tech session in Null Chennai Meet Up",
+      title: "Tech session at Null Chennai Meet Up",
       dates: "18 March 2017",
       location: "Chennai, India",
       description:
-        "Presented a topic about Node JS Security in Null Chennai Meet Up",
+        "Presented a tech session at Null Chennai Meet Up (Chennai, India)",
       image:
         "null.png",
       links: [

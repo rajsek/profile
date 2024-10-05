@@ -1,0 +1,136 @@
+Hi, I'm Raja Sekar
+Full-stack developer and parttime bounty hunter. Passionate about crafting a secure and innovative web solutions for business
+Raja Sekar
+About
+Currently working as Technical Lead at Oracle, resposnible for UI component development, architectural enhancements creating changes in backend system which uses node.js. Im specialized in React.js and micro-frontend architecture, and have a proven track record of optimizing app performance and leading significant projects. I’m passionate about leveraging technology to improve developer productivity and streamline processes.
+
+Work Experience
+Oracle India Private Limited
+Oracle India Private Limited
+Jul 2021 - Present
+Technical Lead
+Developed reusable UI components with React.js, adhering to 100% Oracle Redwood standards, which were widely adopted across CX teams• Led the integration of existing React components into Oracle JET framework, leveraging Preact-Compact for enhanced performance• Extended micro-frontend architecture to include OJET modules alongside React, enabling seamless component reuse and flexibility• Successfully migrated apps from VMs to a cloud-based setup using Kubernetes.
+BNY Mellon Technology Pvt Ltd
+BNY Mellon Technology Pvt Ltd
+Oct 2017 - Jul 2021
+Tech Lead
+Spearheaded development of Orchestration portal handling 100k+ records• Improved app performance by 50% through code optimization, caching, and cloud infrastructure enhancements• Led greenfield transformation to containerized architecture with CI/CD pipeline, reducing deployment time by 30% and streamlining release cycles by 25%• Engineered productivity-enhancing UI tool for CLI-based deployment using React and Tailwind CSS, reducing manual errors by 100%
+KRDS
+KRDS
+Aug 2016 - Oct 2017
+Senior Software Developer
+Web App and Chat Bot Development: Implemented web applications and chatbots for brands such as AXA and Thomas Cook for their social media promotion• AXA Employee Customer Engagement Web App: Contributed to building a web application that manages AXA employees’ customer engagement via Facebook Business Manager. Utilized The Facebook Business Manager API to create and manage 1000+ Facebook accounts for AXA employees. This system enables AXA to monitor and post insurance-related information directly from insurance agent profiles
+TCS
+TCS
+Sep 2012 - Aug 2016
+Software Engineer
+Contributed to the Strategic Lead Management (SLR) and E-Statement application as a developer.• Collaborated on an internal proof-of-concept (POC) for video banking, utilizing WebRTC and socket technology.
+Education
+Sri Sairam Engineering College
+Sri Sairam Engineering College
+2008 - 2012
+Bachelor of Technology in Information Technology
+Skills
+React
+Node.js
+Typescript
+Springboot
+gRPC
+GraphQL
+socket.io
+HTML5
+CSS3
+Webpack
+Redux
+Tailwind CSS
+Angular
+Web Components
+Micro-frontends
+ag-Grid
+Jenkins
+git
+Docker
+Kubernetes
+Java
+Hackathons & Presntation
+I like building things and present it audiance
+Lynk Hacks – Hackathon
+September 16 - 17, 2017
+Lynk Hacks – Hackathon
+Chennai, India
+
+Developed an application that utilizes AWS Vision API to identify authorized users based on their selfie, leveraging a machine learning model trained using existing employee photos. The app accurately predicts whether the user is permitted to use track/van services, enhancing security features for logistics customer requests.
+🏆 Winner - Team Suzhiyam
+Present a tech session in Null Chennai Meet Up
+18 March 2017
+Present a tech session in Null Chennai Meet Up
+Chennai, India
+
+Presented a topic about Node JS Security in Null Chennai Meet Up
+🎤 Node JS Security
+🎤 Understand the client side state through Redux
+🎤 Static Analysis of NodeJS
+🎤 Intro to FB bug bounty
+Awards & Appreciation
+Check out my latest work
+I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.
+
+BountyCon Singapore 2022
+BountyCon Singapore 2022
+September 24 - 25, 2022
+Competed in the BountyCon 2022 CTF Competition, a series of challenging security-related challenges. Ranked among the top scorers and was invited to attend the main event as part of the exclusive group of participants.Attended BountyCon Singapore 2022, a leading invitation-only security conference, where I had the opportunity to network with industry experts and learn from top security researchers.
+
+Fiddler
+git
+SQL injection
+XSS
+Reverse Engineering
+javascript
+Node.js
+BNY Mellon Cyber Steward
+BNY Mellon Cyber Steward
+Jun 2021
+BNY Mellon Cyber Steward Identified a critical security vulnerability in BNY's competition portal through meticulous analysis and research. Created a Proof of Concept (PoC) to demonstrate the vulnerability and reported it to the Security Head. Recognized for my efforts by being awarded the prestigious "BNY Mellon Cyber Steward" award, acknowledging my dedication to cybersecurity excellence.
+
+Fiddler
+Insecure direct object references
+Reverse Engineering
+javascript
+Node.js
+TicketNew.com
+September 2015
+Identified a critical security vulnerability in TicketNew.com's booking system.Discovered a flaw that allowed me to book an entire theater for just the cost of one ticket, and later successfully exploited it to purchase tickets at an incredibly low rate (just 1 Rs).
+
+Fiddler
+Insecure direct object references
+dev-tool
+Reverse Engineering
+payment portal
+Zerodha.com
+Feb 2016
+Identified a security vulnerability in Zerodha's registration flow, allowing me to bypass normal authentication checks. Successfully demonstrated the impact of this vulnerability by gaining unauthorized access to additional services without paying for registration fees. Voluntarily reported the issue to Zerodha and received recognition from their security team for my efforts to enhance their security.
+
+Fiddler
+Insecure direct object references
+dev-tool
+Reverse Engineering
+payment portal
+Certificate
+Samsung.com
+July 2017
+Identified a critical security vulnerability in Samsung India's shopping portal, allowing me to book high-value products for significantly reduced prices. Successfully demonstrated the impact of this vulnerability by booking a product worth 1 lakh rupees for just 1000 rupees. Voluntarily reported the issue and received recognition from Samsung, including a reward (Samsung Gear 2 watch).
+
+Fiddler
+Insecure direct object references
+dev-tool
+Reverse Engineering
+payment portal
+facebook.com
+Sept 2015
+Participated in Facebook's Responsible Disclosure Program and reported 6+ high-severity security issues to the company.Collaborated with Facebook's security team to ensure that all vulnerabilities were thoroughly remediated and resolved.Received a $25,000 reward for my efforts, which acknowledges my commitment to responsible disclosure and enhancing the overall security posture of Facebook.
+
+Fiddler
+Insecure direct object references
+dev-tool
+Reverse Engineering
+Meta hall of fame Thanks Page
