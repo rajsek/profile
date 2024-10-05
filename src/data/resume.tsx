@@ -262,7 +262,7 @@ export const DATA = {
       dates: "Sept 2015",
       active: false,
       description:
-        "Participated in Facebook's Responsible Disclosure Program and reported 6+ high-severity security issues to the company.Collaborated with Facebook's security team to ensure that all vulnerabilities were thoroughly remediated and resolved.Received a $25,000 reward for my efforts, which acknowledges my commitment to responsible disclosure and enhancing the overall security posture of Facebook.",
+        "Participated in Facebook's Responsible Disclosure Program and reported 6+ high-severity security issues to the company.Collaborated with Facebook's security team to ensure that all vulnerabilities were thoroughly remediated and resolved.Received a $25K reward for my efforts, which acknowledges my commitment to responsible disclosure and enhancing the overall security posture of Facebook.",
       technologies: [
         "Fiddler",
         "Insecure direct object references",
