@@ -1,5 +1,7 @@
 import { Analytics } from "@vercel/analytics/react"
-import { GoogleTagManager } from '@next/third-parties/google' 
+// import { GoogleTagManager } from '@next/third-parties/google' 
+import { GoogleAnalytics } from '@next/third-parties/google' 
+
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -57,9 +59,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZDPPC36"
-      height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
-      <GoogleTagManager gtmId="GTM-KZDPPC36" />
+      {/* <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZDPPC36"
+      height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript> */}
+      {/* <GoogleTagManager gtmId="GTM-KZDPPC36" /> */}
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
@@ -74,6 +76,7 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
       </body>
+      <GoogleAnalytics gaId="G-K5C60GPGPP" />
     </html>
   );
 }
