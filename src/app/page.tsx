@@ -154,6 +154,41 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
+      <section id="awards">
+        <div className="space-y-12 w-full py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 14}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  Awards
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Awards & Recognition
+                </h2>
+              </div>
+            </div>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 15}>
+            <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
+              {DATA.awards.map((award, id) => (
+                <BlurFade
+                  key={award.title + award.dates}
+                  delay={BLUR_FADE_DELAY * 16 + id * 0.05}
+                >
+                  <HackathonCard
+                    title={award.title}
+                    description={award.description}
+                    location={award.location}
+                    dates={award.dates}
+                    image={award.image}
+                    links={award.links}
+                  />
+                </BlurFade>
+              ))}
+            </ul>
+          </BlurFade>
+        </div>
+      </section>
       <section id="projects">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 14}>

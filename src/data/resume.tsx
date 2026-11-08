@@ -1,3 +1,11 @@
+// RESUME v13 PROPOSAL - NOT APPLIED. Original src/data/resume.tsx untouched.
+// v12 base + Raja 21:50: statements linked to their proof.
+//   - summary Medium line links to his profile
+//   - marathon finding: "post" link on the certificate statement
+//   - facebook entry: 4 write-ups linked inline per finding; badge links slimmed to Hall of Fame
+//   - Zerodha: "post" link on the acknowledgment statement
+//   - awards carry proof links as badges (HackathonCard renders plain text, no inline links);
+//     BNY Cyber Steward, Samsung and TicketNew have no public link anywhere.
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
@@ -5,12 +13,12 @@ export const DATA = {
   name: "Raja Sekar",
   initials: "Durairaj",
   url: "https://medium.com/@rajsek/",
-  location: "Hyderabad, IN",
-  locationLink: "https://www.google.com/maps/place/hyderabad",
+  location: "Bengaluru, IN",
+  locationLink: "https://www.google.com/maps/place/bengaluru",
   description:
-    "Full-stack developer and part-time bounty hunter. I am passionate about crafting secure and innovative web solutions for businesses.",
+    "Technical Lead and full-stack engineer in Bengaluru. 14 years across frontend, backend and cloud. I also do security research on the side and made Meta's Hall of Fame in 2015 and 2022. These days I build agent apps with LangChain in TypeScript.",
   summary:
-    "Currently working as a **Technical Lead** at **Oracle**, responsible for *UI component development*, architectural enhancements, and creating changes in the **backend system** that uses Node.js. I specialize in **React.js** and **micro-frontend architecture**. I have a proven track record of optimizing app performance and leading significant projects. I'm passionate about leveraging technology to improve developer productivity and streamline processes.",
+    "I work as a **Technical Lead** at **Oracle**. I build UI components, work on architecture, and make changes to the **Node.js backend**. My main areas are **React.js** and **micro-frontend architecture**. I care a lot about app performance and about tools that make developers faster. Recently I started building agent apps with **LangChain** in TypeScript, and I am learning **LangGraph** (RAG, tools, evals). I also practise data structures daily. I write about security and web development on [Medium](https://medium.com/@rajsek).",
   avatarUrl: "/raja-2.jpg",
   skills: [
     "React",
@@ -34,6 +42,12 @@ export const DATA = {
     "Docker",
     "Kubernetes",
     "Java",
+    "Next.js",
+    "PostgreSQL",
+    "Vercel",
+    "LangChain",
+    "LangGraph (learning)",
+    "RAG & LLM evals (learning)",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -78,13 +92,13 @@ export const DATA = {
       company: "Oracle India Private Limited",
       badges: [],
       href: "https://www.oracle.com/in/",
-      location: "Hyderabad, IN",
+      location: "Bengaluru, IN",
       title: "Technical Lead",
       logoUrl: "/oracle.png",
       start: "Jul 2021",
       end: "Present",
       description:
-        "Developed reusable UI components with React.js, adhering to 100% Oracle Redwood standards, which were widely adopted across CX teams• Led the integration of existing React components into the Oracle JET framework, leveraging Preact-Compact for enhanced performance• Extended micro-frontend architecture to include OJET modules alongside React, enabling seamless component reuse and flexibility• Successfully migrated apps from VMs to a cloud-based setup using Kubernetes.",
+        "Built reusable React.js UI components that met 100% of Oracle Redwood standards and were adopted across CX teams• Integrated the React components into the Oracle JET framework using Preact-Compat for better performance• Extended the micro-frontend setup to include OJET modules next to React, so teams reuse components across both• Migrated apps from VMs to a cloud setup on Kubernetes• Built a LangChain agent app that speeds up triage of bug reports from the Anthropic Glass project. The agent checks each reported issue against the actual code across connected repos, so duplicates and wrongly raised issues get filtered out. One example: it rejects requests to add validation in the DAL layer when that case is already handled one level above DAL• Pushed AI adoption in the team: showed how to use AI to write Jira stories, create Figma designs and develop VBCS apps (in-house Oracle products)• Created a Codex skill hooked into an internal tool to automate workflows, shared it across the team, and it made day-to-day dev work faster.",
     },
     {
       company: "BNY Mellon Technology Pvt Ltd",
@@ -96,7 +110,7 @@ export const DATA = {
       start: "Oct 2017",
       end: "Jul 2021",
       description:
-        "Spearheaded the development of an Orchestration portal handling 100k+ records• Improved app performance by 50% through code optimization, caching, and cloud infrastructure enhancements• Led a greenfield transformation to a containerized architecture with a CI/CD pipeline, reducing deployment time by 30% and streamlining release cycles by 25%• Engineered a productivity-enhancing UI tool for CLI-based deployment using React and Tailwind CSS, reducing manual errors by 100%.",
+        "Led development of an Orchestration portal handling 100k+ records• Improved app performance by 50% through code optimization, caching and cloud infrastructure work• Led the move to a containerized architecture with a CI/CD pipeline. Deployment time dropped 30% and release cycles got 25% shorter• Built a UI tool for CLI-based deployment with React and Tailwind CSS, removing manual errors from the process.",
     },
     {
       company: "KRDS",
@@ -108,7 +122,7 @@ export const DATA = {
       start: "Aug 2016",
       end: "Oct 2017",
       description:
-        "Developed web applications and chatbots for brands such as AXA and Thomas Cook for their social media promotion• AXA Employee Customer Engagement Web App: Contributed to building a web application that manages AXA employees' customer engagement via Facebook Business Manager. Utilized The Facebook Business Manager API to create and manage 1000+ Facebook accounts for AXA employees. This system enables AXA to monitor and post insurance-related information directly from insurance agent profiles.",
+        "Built web apps and chatbots for brands like AXA and Thomas Cook for social media promotion• AXA Employee Customer Engagement app: helped build a web app that manages AXA employees' customer engagement through Facebook Business Manager. Used the Facebook Business Manager API to create and manage 1000+ Facebook accounts for AXA employees, so AXA could monitor and post insurance updates straight from agent profiles.",
     },
     {
       company: "TCS",
@@ -120,7 +134,7 @@ export const DATA = {
       start: "Sep 2012",
       end: "Aug 2016",
       description:
-        "Contributed to the Strategic Lead Management (SLR) and E-Statement application as a developer.• Collaborated on an internal proof-of-concept (POC) for video banking, utilizing WebRTC and socket technology.",
+        "Worked as a developer on the Strategic Lead Management (SLR) and E-Statement applications.• Helped build an internal proof of concept for video banking with WebRTC and sockets.",
     }
   ],
   education: [
@@ -133,30 +147,150 @@ export const DATA = {
       end: "2012",
     },
   ],
-  projects: [
+  awards: [
     {
-      title: "BountyCon Singapore 2022",
-      href: "https://www.facebook.com/whitehat/ctf/bountycon2022/rules",
-      dates: "September 24 - 25, 2022",
-      active: false,
+      title: "Meta Hall of Fame",
+      dates: "2015 and 2022",
+      location: "",
       description:
-        "Competed in the BountyCon 2022 CTF Competition, a series of challenging security-related challenges. Ranked among the top scorers and was invited to attend the main event as part of an exclusive group of participants.Attended BountyCon Singapore 2022, a leading invitation-only security conference, where I had the opportunity to network with industry experts and learn from top security researchers.",
-      technologies: [
-        "Fiddler",
-        "git",
-        "SQL injection",
-        "XSS",
-        "Reverse Engineering",
-        "javascript",
-        "Node.js",
+        "Listed in Meta's bug bounty Hall of Fame twice for responsibly disclosed security reports ($25K total rewards).",
+      image: "",
+      links: [
+        {
+          title: "Hall of Fame 2015",
+          href: "https://bugbounty.meta.com/leaderboard/?league=&year=2015",
+          icon: '🏆 '
+        },
       ],
+    },
+    {
+      title: "BountyCon 2022 - top 10",
+      dates: "Sep 2022",
+      location: "Singapore",
+      description:
+        "Came as a top 10 participant in the BountyCon CTF, securing a place at the next-level live bug bounty / live hacking events.",
       image: "/boutycon2.jpg",
       links: [
-        // {
-        //   type: "Website",
-        //   href: "",
-        //   icon: <Icons.globe className="size-3" />,
-        // },
+        {
+          title: "BountyCon 2022",
+          href: "https://www.facebook.com/whitehat/ctf/bountycon2022/rules",
+          icon: '🏆 '
+        },
+      ],
+    },
+    {
+      title: "Samsung security acknowledgment",
+      dates: "Jul 2017",
+      location: "",
+      description:
+        "Recognition and a Samsung Gear 2 reward for responsibly reporting a critical shopping-portal vulnerability.",
+      image: "",
+      links: [],
+    },
+    {
+      title: "Zerodha security acknowledgment",
+      dates: "Feb 2016",
+      location: "",
+      description:
+        "Acknowledged by Zerodha's security team for a responsibly reported registration-flow vulnerability.",
+      image: "",
+      links: [
+        {
+          title: "Acknowledgment",
+          href: "https://www.linkedin.com/posts/rajsekdurai_acknowledged-by-zerodha-team-zerodha-infosec-activity-6370336134131744768-i9SI?utm_source=share&utm_medium=member_desktop",
+          icon: '🏆 '
+        },
+      ],
+    },
+  ],
+  projects: [
+    {
+      title: "Marathon photo platform data leak",
+      href: "https://medium.com/codetodeploy/i-found-a-data-leak-while-buying-my-marathon-photos-0829124ac386",
+      dates: "Sep 2026",
+      active: false,
+      description:
+        "While buying my marathon photos I found an IDOR flaw in the race photography platform: one valid order ID plus a changed bib number returned another runner's high-resolution photos for free, and a valid order ID also exposed the buyer's email and payment status. Reported both the same day; the platform fixed them, confirmed the fix, and sent a certificate ([post](https://medium.com/codetodeploy/i-found-a-data-leak-while-buying-my-marathon-photos-0829124ac386)).",
+      technologies: [
+        "IDOR",
+        "Broken access control",
+        "Responsible disclosure",
+      ],
+      image: "",
+      links: [
+        {
+          type: "Write-up",
+          href: "https://medium.com/codetodeploy/i-found-a-data-leak-while-buying-my-marathon-photos-0829124ac386",
+          icon: '🐛 '
+        },
+      ],
+      video: ""
+    },
+    {
+      title: "PokerPeeker - PlanITPoker vote audit",
+      href: "https://github.com/rajsek/PokerPeeker-Internal-Vote-Audit",
+      dates: "Apr 2026",
+      active: false,
+      description:
+        "A Chrome extension that audits PlanITPoker (planning poker) votes in a browser side panel. It spots vote conflicts in the room data, can mirror a chosen participant's vote, and exports the room's audit data as JSON.",
+      technologies: [
+        "Chrome extension",
+        "Planning poker",
+        "Vote auditing",
+      ],
+      image: "",
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/rajsek/PokerPeeker-Internal-Vote-Audit",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      video: ""
+    },
+    {
+      title: "VBCS Variable Inspector",
+      href: "https://github.com/rajsek/VBCS-Variable-Inspector-",
+      dates: "Mar 2026",
+      active: false,
+      description:
+        "A Chrome dev tool for debugging Oracle VBCS/OJET apps. It inspects runtime bindings and namespaces, and comes with a state manager, query, export/import and backup/restore of app state.",
+      technologies: [
+        "Chrome extension",
+        "Oracle VBCS",
+        "OJET",
+      ],
+      image: "",
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/rajsek/VBCS-Variable-Inspector-",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      video: ""
+    },
+    {
+      title: "WebSocket Debugger + Security Workbench (personal project)",
+      href: "https://github.com/rajsek/WebSocket-Debugger-Security-Workbench",
+      dates: "2026",
+      active: false,
+      description:
+        "My own Chrome extension (TypeScript, MV3) for WebSocket work: a small React debugger with explicit target context, plus an authorized, host-bound Security Lab that exports redacted evidence.",
+      technologies: [
+        "TypeScript",
+        "Chrome extension",
+        "WebSockets",
+        "Security testing",
+        "React",
+      ],
+      image: "",
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/rajsek/WebSocket-Debugger-Security-Workbench",
+          icon: <Icons.github className="size-3" />,
+        },
       ],
       video: ""
     },
@@ -166,7 +300,7 @@ export const DATA = {
       dates: "Jun 2021",
       active: false,
       description:
-        "BNY Mellon Cyber Steward Identified a critical security vulnerability in BNY's competition portal through meticulous analysis and research. Created a Proof of Concept (PoC) to demonstrate the vulnerability and reported it to the Security Head. Recognized for my efforts by being awarded the prestigious \"BNY Mellon Cyber Steward\" award, acknowledging my dedication to cybersecurity excellence.",
+        "Found a serious security vulnerability in BNY's competition portal, built a proof of concept for it and reported it to the Security Head. BNY gave me their Cyber Steward award for it.",
       technologies: [
         "Fiddler",
         "Insecure direct object references ",
@@ -190,7 +324,7 @@ export const DATA = {
       dates: "September 2015",
       active: false,
       description:
-        "Identified a critical security vulnerability in TicketNew.com's booking system.Discovered a flaw that allowed me to book an entire theater for just the cost of one ticket, and later successfully exploited it to purchase tickets at an incredibly low rate (just 1 Rs).",
+        "Found a serious flaw in TicketNew's booking system: it let me book an entire theater for the price of one ticket, and later buy tickets for 1 Rs each.",
       technologies: [
         "Fiddler",
         "Insecure direct object references",
@@ -214,7 +348,7 @@ export const DATA = {
       dates: "Feb 2016",
       active: false,
       description:
-        "Identified a security vulnerability in Zerodha's registration flow, allowing me to bypass normal authentication checks. Successfully demonstrated the impact of this vulnerability by gaining unauthorized access to additional services without paying for registration fees. Voluntarily reported the issue to Zerodha and received recognition from their security team for my efforts to enhance their security.",
+        "Found a vulnerability in Zerodha's registration flow that bypassed the normal authentication checks and gave access to extra services without paying the registration fee. Reported it to Zerodha voluntarily, and their security team acknowledged it ([post](https://www.linkedin.com/posts/rajsekdurai_acknowledged-by-zerodha-team-zerodha-infosec-activity-6370336134131744768-i9SI?utm_source=share&utm_medium=member_desktop)).",
       technologies: [
         "Fiddler",
         "Insecure direct object references",
@@ -223,13 +357,7 @@ export const DATA = {
         "payment portal"
       ],
       image: "",
-      links: [
-        {
-          type: "Certificate",
-          href: "https://www.linkedin.com/posts/rajsekdurai_acknowledged-by-zerodha-team-zerodha-infosec-activity-6370336134131744768-i9SI?utm_source=share&utm_medium=member_desktop",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
+      links: [],
       video: ""
     },
     {
@@ -238,7 +366,7 @@ export const DATA = {
       dates: "July 2017",
       active: false,
       description:
-        "Identified a critical security vulnerability in Samsung India's shopping portal, allowing me to book high-value products for significantly reduced prices. Successfully demonstrated the impact of this vulnerability by booking a product worth 1 lakh rupees for just 1000 rupees. Voluntarily reported the issue and received recognition from Samsung, including a reward (Samsung Gear 2 watch).",
+        "Found a serious vulnerability in Samsung India's shopping portal that allowed booking high-value products at very low prices. Showed the impact by booking a product worth 1 lakh rupees for 1000 rupees, then reported it voluntarily. Samsung acknowledged it with a reward (Samsung Gear 2 watch).",
       technologies: [
         "Fiddler",
         "Insecure direct object references",
@@ -262,7 +390,7 @@ export const DATA = {
       dates: "Sept 2015",
       active: false,
       description:
-        "Participated in Facebook's Responsible Disclosure Program and reported 6+ high-severity security issues to the company.Collaborated with Facebook's security team to ensure that all vulnerabilities were thoroughly remediated and resolved.Received a $25K reward for my efforts, which acknowledges my commitment to responsible disclosure and enhancing the overall security posture of Facebook.",
+        "Reported 6+ high-severity security issues through Facebook's Responsible Disclosure Program and worked with their security team until each one was fixed. Received a $25K reward. Write-ups: [private friend list disclosure](https://medium.com/@rajsek/how-i-was-able-to-get-your-facebook-private-friend-list-responsible-disclosure-91984606e682), [IDOR birth year disclosure](https://medium.com/@rajsek/my-2nd-facebook-bounty-poc-fb-data-of-birth-disclosure-d02e1bec50), [DOB via Graph API reverse engineering](https://medium.com/@rajsek/my-3rd-facebook-bounty-hat-trick-chennai-tcs-er-name-listed-in-facebook-hall-of-fame-47f57f2a4f71), [birth year via Timeline data attribute](https://medium.com/@rajsek/curiosity-and-passion-to-your-profession-might-lead-to-make-your-dream-come-true-7d9be3c6029a).",
       technologies: [
         "Fiddler",
         "Insecure direct object references",
@@ -276,11 +404,6 @@ export const DATA = {
           href: "https://bugbounty.meta.com/leaderboard/?league=&year=2015",
           icon: <Icons.globe className="size-3" />
         },
-        {
-          type: "Bug Report POC Blog  ",
-          href: "https://medium.com/@rajsek/my-3rd-facebook-bounty-hat-trick-chennai-tcs-er-name-listed-in-facebook-hall-of-fame-47f57f2a4f71",
-          icon: '🐛 '
-        },
       ],
       video: ""
     },
@@ -291,7 +414,7 @@ export const DATA = {
       dates: "September 16 - 17, 2017",
       location: "Chennai, India",
       description:
-        "Developed an application that utilizes AWS Vision API to identify authorized users based on their selfie, leveraging a machine learning model trained using existing employee photos. The app accurately predicts whether the user is permitted to use track/van services, enhancing security features for logistics customer requests.",
+        "Built an app that uses the AWS Vision API to identify authorized users from a selfie, with a model trained on existing employee photos. The app predicts whether a user can use track/van services, adding a security check for logistics customer requests.",
       image:
         "lynk.png",
       mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg",
@@ -307,7 +430,7 @@ export const DATA = {
       dates: "18 March 2017",
       location: "Chennai, India",
       description:
-        "Presented a tech session at Null Chennai Meet Up (Chennai, India)",
+        "Gave tech talks at the Null Chennai meetup (Chennai, India)",
       image:
         "null.png",
       links: [
