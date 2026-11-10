@@ -227,7 +227,7 @@ export const DATA = {
         "Broken access control",
         "Responsible disclosure",
       ],
-      image: "",
+      image: "/banner-marathon.webp",
       links: [
         {
           type: "Write-up",
@@ -249,12 +249,17 @@ export const DATA = {
         "Planning poker",
         "Vote auditing",
       ],
-      image: "",
+      image: "/banner-pokerpeeker.png",
       links: [
         {
           type: "Source",
           href: "https://github.com/rajsek/PokerPeeker-Internal-Vote-Audit",
           icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Chrome Web Store",
+          href: "https://chromewebstore.google.com/detail/pokerpeeker-internal-vote/dampegbmhhomohphhhkjmpincdfnjaom",
+          icon: <Icons.globe className="size-3" />,
         },
       ],
       video: ""
@@ -271,12 +276,17 @@ export const DATA = {
         "Oracle VBCS",
         "OJET",
       ],
-      image: "",
+      image: "/banner-vbcs.png",
       links: [
         {
           type: "Source",
           href: "https://github.com/rajsek/VBCS-Variable-Inspector-",
           icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Chrome Web Store",
+          href: "https://chromewebstore.google.com/detail/vbcs-variable-inspector/nhlbnbfihdnmmgncdfknekabdhlajhpl",
+          icon: <Icons.globe className="size-3" />,
         },
       ],
       video: ""
@@ -295,12 +305,17 @@ export const DATA = {
         "Security testing",
         "React",
       ],
-      image: "",
+      image: "/banner-wsworkbench.png",
       links: [
         {
           type: "Source",
           href: "https://github.com/rajsek/WebSocket-Debugger-Security-Workbench",
           icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Chrome Web Store",
+          href: "https://chromewebstore.google.com/detail/nlmbgbnhoampplflhohbionappfpapaa",
+          icon: <Icons.globe className="size-3" />,
         },
       ],
       video: ""
