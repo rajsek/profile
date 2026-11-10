@@ -27,7 +27,7 @@ export const DATA = {
   location: "Bengaluru, IN",
   locationLink: "https://www.google.com/maps/place/bengaluru",
   description:
-    `Technical Lead and full-stack engineer in Bengaluru. ${yearsOfExperience} years across frontend, backend and cloud. I also do security research on the side and made Meta's Hall of Fame in 2015 and 2022. These days I build agent apps with LangChain in TypeScript.`,
+    `Technical Lead in Bengaluru, ${yearsOfExperience} years across frontend, backend and cloud. These days I build AI agent apps with LangChain at Oracle. On the side I do security research and made Meta's Hall of Fame in 2015 and 2022.`,
   summary:
     "I work as a **Technical Lead** at **Oracle**. I build UI components, work on architecture, and make changes to the **Node.js backend**. My main areas are **React.js** and **micro-frontend architecture**. I care a lot about app performance and about tools that make developers faster. Recently I started building agent apps with **LangChain** in TypeScript, and I am learning **LangGraph** (RAG, tools, evals). I also practise data structures daily. I write about security and web development on [Medium](https://medium.com/@rajsek).",
   avatarUrl: "/raja-2.jpg",
