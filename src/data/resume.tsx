@@ -9,6 +9,17 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
+// Years of experience computed from the career start (TCS, Sep 2012) so the
+// number never goes stale. Floored: 14 until Sep 2027, then 15, and so on.
+const CAREER_START_YEAR = 2012;
+const CAREER_START_MONTH = 8; // September, 0-based
+const yearsOfExperience = (() => {
+  const now = new Date();
+  let years = now.getFullYear() - CAREER_START_YEAR;
+  if (now.getMonth() < CAREER_START_MONTH) years -= 1;
+  return years;
+})();
+
 export const DATA = {
   name: "Raja Sekar",
   initials: "Durairaj",
@@ -16,7 +27,7 @@ export const DATA = {
   location: "Bengaluru, IN",
   locationLink: "https://www.google.com/maps/place/bengaluru",
   description:
-    "Technical Lead and full-stack engineer in Bengaluru. 14 years across frontend, backend and cloud. I also do security research on the side and made Meta's Hall of Fame in 2015 and 2022. These days I build agent apps with LangChain in TypeScript.",
+    `Technical Lead and full-stack engineer in Bengaluru. ${yearsOfExperience} years across frontend, backend and cloud. I also do security research on the side and made Meta's Hall of Fame in 2015 and 2022. These days I build agent apps with LangChain in TypeScript.`,
   summary:
     "I work as a **Technical Lead** at **Oracle**. I build UI components, work on architecture, and make changes to the **Node.js backend**. My main areas are **React.js** and **micro-frontend architecture**. I care a lot about app performance and about tools that make developers faster. Recently I started building agent apps with **LangChain** in TypeScript, and I am learning **LangGraph** (RAG, tools, evals). I also practise data structures daily. I write about security and web development on [Medium](https://medium.com/@rajsek).",
   avatarUrl: "/raja-2.jpg",
