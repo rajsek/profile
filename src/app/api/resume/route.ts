@@ -1,14 +1,19 @@
 import { PDFDocument, StandardFonts, rgb, PDFFont, PDFPage } from "pdf-lib";
 import { yearsOfExperience } from "@/data/resume";
+import fs from "fs";
+import path from "path";
 
 // Serves the resume PDF from the private rajsek/resumes repo
 // (pdf/2-page-fullstack.pdf) via the GitHub API, cached server-side for 10
 // minutes. Needs a READ-ONLY fine-grained token in the RESUMES_GITHUB_TOKEN
-// env var (Vercel project settings; never commit it). If the fetch fails for
-// any reason (missing token, network, GitHub error), falls back to building
-// the ATS PDF here with pdf-lib, so the download always works.
-// X-Resume-Source response header says which path served: "github" or
-// "fallback".
+// env var (Vercel project settings, or .env.local for local dev; never
+// commit it). If the fetch fails for any reason (missing token, network,
+// GitHub error), falls back to resume-fallback.pdf at the repo root, a
+// byte-for-byte copy of the same repo build (update it when the resumes
+// repo PDF changes). The pdf-lib ATS build remains as a last resort so the
+// download always works.
+// X-Resume-Source response header says which path served: "github",
+// "fallback" (bundled file) or "fallback-generated" (pdf-lib build).
 export const dynamic = "force-dynamic";
 
 const yoe = yearsOfExperience;
@@ -320,6 +325,17 @@ async function buildPdf(): Promise<Uint8Array> {
   return doc.save();
 }
 
+function readBundledPdf(): Uint8Array | null {
+  try {
+    return new Uint8Array(
+      fs.readFileSync(path.join(process.cwd(), "resume-fallback.pdf"))
+    );
+  } catch (e) {
+    console.warn("bundled resume read failed:", e);
+    return null;
+  }
+}
+
 const pdfHeaders = (source: string) => ({
   "Content-Type": "application/pdf",
   "Content-Disposition": 'attachment; filename="Raja_Sekar_Resume.pdf"',
@@ -334,8 +350,14 @@ export async function GET() {
       headers: pdfHeaders("github"),
     });
   }
+  const bundledBytes = readBundledPdf();
+  if (bundledBytes) {
+    return new Response(Buffer.from(bundledBytes), {
+      headers: pdfHeaders("fallback"),
+    });
+  }
   const bytes = await buildPdf();
   return new Response(Buffer.from(bytes), {
-    headers: pdfHeaders("fallback"),
+    headers: pdfHeaders("fallback-generated"),
   });
 }
