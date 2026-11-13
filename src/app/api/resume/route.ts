@@ -1,12 +1,46 @@
 import { PDFDocument, StandardFonts, rgb, PDFFont, PDFPage } from "pdf-lib";
 import { yearsOfExperience } from "@/data/resume";
 
-// Builds the ATS resume PDF per request, so the "N+ years" figure always uses
-// the same yearsOfExperience logic as the hero. Content mirrors the reviewed
-// v4 resume (email raji.sekard@gmail.com, no phone).
+// Serves the resume PDF from the private rajsek/resumes repo
+// (pdf/2-page-fullstack.pdf) via the GitHub API, cached server-side for 10
+// minutes. Needs a READ-ONLY fine-grained token in the RESUMES_GITHUB_TOKEN
+// env var (Vercel project settings; never commit it). If the fetch fails for
+// any reason (missing token, network, GitHub error), falls back to building
+// the ATS PDF here with pdf-lib, so the download always works.
+// X-Resume-Source response header says which path served: "github" or
+// "fallback".
 export const dynamic = "force-dynamic";
 
 const yoe = yearsOfExperience;
+
+const RESUME_REPO = "rajsek/resumes";
+const RESUME_PATH = "pdf/2-page-fullstack.pdf";
+
+async function fetchRepoPdf(): Promise<Uint8Array | null> {
+  const token = process.env.RESUMES_GITHUB_TOKEN;
+  if (!token) return null;
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${RESUME_REPO}/contents/${RESUME_PATH}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/vnd.github.raw",
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+        next: { revalidate: 600 }, // 10 min server-side cache
+      }
+    );
+    if (!res.ok) {
+      console.warn(`resume fetch failed: GitHub ${res.status}`);
+      return null;
+    }
+    return new Uint8Array(await res.arrayBuffer());
+  } catch (e) {
+    console.warn("resume fetch failed:", e);
+    return null;
+  }
+}
 
 const CONTENT = {
   name: "Raja Sekar D",
@@ -286,13 +320,22 @@ async function buildPdf(): Promise<Uint8Array> {
   return doc.save();
 }
 
+const pdfHeaders = (source: string) => ({
+  "Content-Type": "application/pdf",
+  "Content-Disposition": 'attachment; filename="Raja_Sekar_Resume.pdf"',
+  "Cache-Control": "no-store",
+  "X-Resume-Source": source,
+});
+
 export async function GET() {
+  const repoBytes = await fetchRepoPdf();
+  if (repoBytes) {
+    return new Response(Buffer.from(repoBytes), {
+      headers: pdfHeaders("github"),
+    });
+  }
   const bytes = await buildPdf();
   return new Response(Buffer.from(bytes), {
-    headers: {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": 'attachment; filename="Raja_Sekar_Resume.pdf"',
-      "Cache-Control": "no-store",
-    },
+    headers: pdfHeaders("fallback"),
   });
 }
