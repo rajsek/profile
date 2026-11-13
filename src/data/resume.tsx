@@ -1,24 +1,5 @@
-// RESUME v13 PROPOSAL - NOT APPLIED. Original src/data/resume.tsx untouched.
-// v12 base + Raja 21:50: statements linked to their proof.
-//   - summary Medium line links to his profile
-//   - marathon finding: "post" link on the certificate statement
-//   - facebook entry: 4 write-ups linked inline per finding; badge links slimmed to Hall of Fame
-//   - Zerodha: "post" link on the acknowledgment statement
-//   - awards carry proof links as badges (HackathonCard renders plain text, no inline links);
-//     BNY Cyber Steward, Samsung and TicketNew have no public link anywhere.
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
-
-// Years of experience computed from the career start (TCS, Sep 2012) so the
-// number never goes stale. Floored: 14 until Sep 2027, then 15, and so on.
-const CAREER_START_YEAR = 2012;
-const CAREER_START_MONTH = 8; // September, 0-based
-const yearsOfExperience = (() => {
-  const now = new Date();
-  let years = now.getFullYear() - CAREER_START_YEAR;
-  if (now.getMonth() < CAREER_START_MONTH) years -= 1;
-  return years;
-})();
 
 export const DATA = {
   name: "Raja Sekar",
@@ -27,9 +8,9 @@ export const DATA = {
   location: "Bengaluru, IN",
   locationLink: "https://www.google.com/maps/place/bengaluru",
   description:
-    `Technical Lead in Bengaluru, ${yearsOfExperience} years across frontend, backend and cloud. These days I build AI agent apps with LangChain at Oracle. On the side I do security research and made Meta's Hall of Fame in 2015 and 2022.`,
+    "Technical Lead at Oracle. I build full-stack products and AI agents. 14 years in engineering. Twice listed in Meta's security Hall of Fame.",
   summary:
-    "I work as a **Technical Lead** at **Oracle**. I build UI components, work on architecture, and make changes to the **Node.js backend**. My main areas are **React.js** and **micro-frontend architecture**. I care a lot about app performance and about tools that make developers faster. Recently I started building agent apps with **LangChain** in TypeScript, and I am learning **LangGraph** (RAG, tools, evals). I also practise data structures daily. I write about security and web development on [Medium](https://medium.com/@rajsek).",
+    "Based in **Bengaluru**, I work across **React, Node.js and cloud**, with a focus on performance, micro-frontends and developer tools. My current AI work uses **TypeScript and LangChain** to check bug reports against code across repositories. I'm also learning **LangGraph, RAG and LLM evaluation**. Outside work, I research security vulnerabilities and share what I learn on [Medium](https://medium.com/@rajsek).",
   avatarUrl: "/raja-2.jpg",
   skills: [
     "React",
@@ -227,7 +208,7 @@ export const DATA = {
         "Broken access control",
         "Responsible disclosure",
       ],
-      image: "/banner-marathon.webp",
+      image: "/card-marathon.png",
       links: [
         {
           type: "Write-up",
@@ -249,17 +230,12 @@ export const DATA = {
         "Planning poker",
         "Vote auditing",
       ],
-      image: "/banner-pokerpeeker.png",
+      image: "/card-pokerpeeker.png",
       links: [
         {
           type: "Source",
           href: "https://github.com/rajsek/PokerPeeker-Internal-Vote-Audit",
           icon: <Icons.github className="size-3" />,
-        },
-        {
-          type: "Chrome Web Store",
-          href: "https://chromewebstore.google.com/detail/pokerpeeker-internal-vote/dampegbmhhomohphhhkjmpincdfnjaom",
-          icon: <Icons.globe className="size-3" />,
         },
       ],
       video: ""
@@ -276,17 +252,12 @@ export const DATA = {
         "Oracle VBCS",
         "OJET",
       ],
-      image: "/banner-vbcs.png",
+      image: "/card-vbcs.png",
       links: [
         {
           type: "Source",
           href: "https://github.com/rajsek/VBCS-Variable-Inspector-",
           icon: <Icons.github className="size-3" />,
-        },
-        {
-          type: "Chrome Web Store",
-          href: "https://chromewebstore.google.com/detail/vbcs-variable-inspector/nhlbnbfihdnmmgncdfknekabdhlajhpl",
-          icon: <Icons.globe className="size-3" />,
         },
       ],
       video: ""
@@ -305,17 +276,12 @@ export const DATA = {
         "Security testing",
         "React",
       ],
-      image: "/banner-wsworkbench.png",
+      image: "/card-websocket.png",
       links: [
         {
           type: "Source",
           href: "https://github.com/rajsek/WebSocket-Debugger-Security-Workbench",
           icon: <Icons.github className="size-3" />,
-        },
-        {
-          type: "Chrome Web Store",
-          href: "https://chromewebstore.google.com/detail/nlmbgbnhoampplflhohbionappfpapaa",
-          icon: <Icons.globe className="size-3" />,
         },
       ],
       video: ""
@@ -358,7 +324,7 @@ export const DATA = {
         "Reverse Engineering",
         "payment portal"
       ],
-      image: "",
+      image: "/card-ticketnew.png",
       links: [
         // {
         //   type: "Website",
