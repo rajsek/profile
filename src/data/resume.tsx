@@ -248,6 +248,11 @@ export const DATA = {
           href: "https://github.com/rajsek/PokerPeeker-Internal-Vote-Audit",
           icon: <Icons.github className="size-3" />,
         },
+        {
+          type: "Chrome Web Store",
+          href: "https://chromewebstore.google.com/detail/pokerpeeker-internal-vote/dampegbmhhomohphhhkjmpincdfnjaom",
+          icon: <Icons.globe className="size-3" />,
+        },
       ],
       video: ""
     },
@@ -269,6 +274,11 @@ export const DATA = {
           type: "Source",
           href: "https://github.com/rajsek/VBCS-Variable-Inspector-",
           icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Chrome Web Store",
+          href: "https://chromewebstore.google.com/detail/vbcs-variable-inspector/nhlbnbfihdnmmgncdfknekabdhlajhpl",
+          icon: <Icons.globe className="size-3" />,
         },
       ],
       video: ""
@@ -293,6 +303,11 @@ export const DATA = {
           type: "Source",
           href: "https://github.com/rajsek/WebSocket-Debugger-Security-Workbench",
           icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Chrome Web Store",
+          href: "https://chromewebstore.google.com/detail/nlmbgbnhoampplflhohbionappfpapaa",
+          icon: <Icons.globe className="size-3" />,
         },
       ],
       video: ""
