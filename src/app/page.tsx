@@ -6,7 +6,6 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
-import { Button } from "@/components/ui/button";
 import { DownloadIcon } from "lucide-react";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -35,24 +34,22 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
-              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+              <BlurFade delay={BLUR_FADE_DELAY * 2} className="pt-1">
                 {RESUME_AVAILABLE ? (
                   <Link href="/api/resume" target="_blank">
-                    <Button variant="outline" className="mt-2 gap-2">
-                      <DownloadIcon className="size-4" />
+                    <Badge className="flex w-fit gap-2 px-2 py-1 text-[10px]">
+                      <DownloadIcon className="size-3" />
                       Download resume
-                    </Button>
+                    </Badge>
                   </Link>
                 ) : (
-                  <Button
-                    variant="outline"
-                    className="mt-2 gap-2"
-                    disabled
+                  <Badge
+                    className="flex w-fit gap-2 px-2 py-1 text-[10px] opacity-50"
                     title="Resume PDF will be added soon"
                   >
-                    <DownloadIcon className="size-4" />
+                    <DownloadIcon className="size-3" />
                     Download resume
-                  </Button>
+                  </Badge>
                 )}
               </BlurFade>
             </div>
