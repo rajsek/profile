@@ -142,3 +142,30 @@ code[data-line-numbers-max-digits="2"] > [data-line]::before {
 code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
+/* JS-free reveal used by BlurFade/BlurFadeText. The animation runs at page
+   load even before hydration, so slow or failed JS can never leave the page
+   white (previously every section SSR-rendered at opacity:0 and only JS
+   could reveal it). */
+@keyframes blur-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--bf-y, 6px));
+    filter: blur(var(--bf-blur, 6px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.blur-fade {
+  animation: blur-fade-in var(--bf-duration, 0.4s) ease-out var(--bf-delay, 0s) both;
+  will-change: transform, opacity, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blur-fade {
+    animation: none;
+  }
+}

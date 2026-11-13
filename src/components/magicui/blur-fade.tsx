@@ -1,7 +1,5 @@
-"use client";
-
-import { AnimatePresence, motion, useInView, Variants } from "framer-motion";
-import { useRef } from "react";
+import { cn } from "@/lib/utils";
+import { CSSProperties } from "react";
 
 interface BlurFadeProps {
   children: React.ReactNode;
@@ -17,43 +15,29 @@ interface BlurFadeProps {
   inViewMargin?: string;
   blur?: string;
 }
+
+// Pure CSS reveal. The animation starts at page load without any JavaScript,
+// so content can never get stuck at opacity:0 waiting for hydration (the old
+// framer-motion version SSR-rendered every section hidden and showed a white
+// page whenever JS was slow or a chunk failed on first load).
 const BlurFade = ({
   children,
   className,
-  variant,
   duration = 0.4,
   delay = 0,
   yOffset = 6,
-  inView = false,
-  inViewMargin = "-50px",
   blur = "6px",
 }: BlurFadeProps) => {
-  const ref = useRef(null);
-  const inViewResult = useInView(ref, { once: true, margin: inViewMargin as any });
-  const isInView = !inView || inViewResult;
-  const defaultVariants: Variants = {
-    hidden: { y: yOffset, opacity: 0, filter: `blur(${blur})` },
-    visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },
-  };
-  const combinedVariants = variant || defaultVariants;
+  const style = {
+    "--bf-delay": `${0.04 + delay}s`,
+    "--bf-duration": `${duration}s`,
+    "--bf-y": `${yOffset}px`,
+    "--bf-blur": blur,
+  } as CSSProperties;
   return (
-    <AnimatePresence>
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        exit="hidden"
-        variants={combinedVariants}
-        transition={{
-          delay: 0.04 + delay,
-          duration,
-          ease: "easeOut",
-        }}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div className={cn("blur-fade", className)} style={style}>
+      {children}
+    </div>
   );
 };
 
