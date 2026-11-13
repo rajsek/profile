@@ -6,10 +6,17 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
+import { Button } from "@/components/ui/button";
+import { DownloadIcon } from "lucide-react";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
+
+// Resume PDF download: disabled until the file is supplied. To enable, drop
+// resume.pdf into /public and set RESUME_AVAILABLE to true - the button then
+// links to /resume.pdf.
+const RESUME_AVAILABLE = false;
 
 export default function Page() {
   return (
@@ -29,6 +36,26 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                {RESUME_AVAILABLE ? (
+                  <Link href="/resume.pdf" target="_blank">
+                    <Button variant="outline" className="mt-2 gap-2">
+                      <DownloadIcon className="size-4" />
+                      Download resume
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button
+                    variant="outline"
+                    className="mt-2 gap-2"
+                    disabled
+                    title="Resume PDF will be added soon"
+                  >
+                    <DownloadIcon className="size-4" />
+                    Download resume
+                  </Button>
+                )}
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">

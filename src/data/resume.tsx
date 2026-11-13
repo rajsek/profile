@@ -1,6 +1,17 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
+// Years of experience computed from the career start (TCS, Sep 2012) so the
+// number never goes stale. Rendered as "14+" in the intro.
+const CAREER_START_YEAR = 2012;
+const CAREER_START_MONTH = 8; // September, 0-based
+const yearsOfExperience = (() => {
+  const now = new Date();
+  let years = now.getFullYear() - CAREER_START_YEAR;
+  if (now.getMonth() < CAREER_START_MONTH) years -= 1;
+  return years;
+})();
+
 export const DATA = {
   name: "Raja Sekar",
   initials: "Durairaj",
@@ -8,7 +19,7 @@ export const DATA = {
   location: "Bengaluru, IN",
   locationLink: "https://www.google.com/maps/place/bengaluru",
   description:
-    "Technical Lead at Oracle. I build full-stack products and AI agents. 14 years in engineering. Twice listed in Meta's security Hall of Fame.",
+    `Technical Lead at Oracle. I build full-stack products and AI agents. ${yearsOfExperience}+ years in engineering. Twice listed in Meta's security Hall of Fame.`,
   summary:
     "Based in **Bengaluru**, I work across **React, Node.js and cloud**, with a focus on performance, micro-frontends and developer tools. My current AI work uses **TypeScript and LangChain** to check bug reports against code across repositories. I'm also learning **LangGraph, RAG and LLM evaluation**. Outside work, I research security vulnerabilities and share what I learn on [Medium](https://medium.com/@rajsek).",
   avatarUrl: "/raja-2.jpg",
@@ -146,7 +157,7 @@ export const DATA = {
       location: "",
       description:
         "Listed in Meta's bug bounty Hall of Fame twice for responsibly disclosed security reports ($25K total rewards).",
-      image: "",
+      image: "/meta.svg",
       links: [
         {
           title: "Hall of Fame 2015",
@@ -176,7 +187,7 @@ export const DATA = {
       location: "",
       description:
         "Recognition and a Samsung Gear 2 reward for responsibly reporting a critical shopping-portal vulnerability.",
-      image: "",
+      image: "/samsung.png",
       links: [],
     },
     {
@@ -185,7 +196,7 @@ export const DATA = {
       location: "",
       description:
         "Acknowledged by Zerodha's security team for a responsibly reported registration-flow vulnerability.",
-      image: "",
+      image: "/zerodha.svg",
       links: [
         {
           title: "Acknowledgment",
