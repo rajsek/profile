@@ -186,7 +186,7 @@ export const DATA = {
       dates: "Jun 2021",
       location: "",
       description:
-        "BNY's Cyber Steward award for finding a serious security vulnerability in their competition portal, building a proof of concept and reporting it to the Security Head.",
+        "BNY's Cyber Steward award for finding a serious security vulnerability in their compensation portal, building a proof of concept and reporting it to the Security Head.",
       image: "/bny.svg",
       links: [],
     },
@@ -327,7 +327,7 @@ export const DATA = {
       dates: "Jun 2021",
       active: false,
       description:
-        "Found a serious security vulnerability in BNY's competition portal, built a proof of concept for it and reported it to the Security Head. BNY gave me their Cyber Steward award for it.",
+        "Found a serious security vulnerability in BNY's compensation portal, built a proof of concept for it and reported it to the Security Head. BNY gave me their Cyber Steward award for it.",
       technologies: [
         "Fiddler",
         "Insecure direct object references ",
