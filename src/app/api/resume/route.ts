@@ -140,7 +140,7 @@ const CONTENT = {
       org: "Cyber Steward Award",
       meta: "Jun 2021",
       bullets: [
-        "Found a serious security vulnerability in BNY's competition portal, built a proof of concept and reported it to the Security Head. BNY recognized it with their Cyber Steward award.",
+        "Found a serious security vulnerability in BNY's compensation portal, built a proof of concept and reported it to the Security Head. BNY recognized it with their Cyber Steward award.",
       ],
     },
     {
@@ -360,4 +360,4 @@ export async function GET() {
   return new Response(Buffer.from(bytes), {
     headers: pdfHeaders("fallback-generated"),
   });
-}
+          }
