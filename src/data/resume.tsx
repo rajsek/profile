@@ -182,6 +182,15 @@ export const DATA = {
       ],
     },
     {
+      title: "BNY Mellon Cyber Steward",
+      dates: "Jun 2021",
+      location: "",
+      description:
+        "BNY's Cyber Steward award for finding a serious security vulnerability in their competition portal, building a proof of concept and reporting it to the Security Head.",
+      image: "/bny.svg",
+      links: [],
+    },
+    {
       title: "Samsung security acknowledgment",
       dates: "Jul 2017",
       location: "",
