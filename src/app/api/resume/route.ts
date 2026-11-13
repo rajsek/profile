@@ -360,4 +360,4 @@ export async function GET() {
   return new Response(Buffer.from(bytes), {
     headers: pdfHeaders("fallback-generated"),
   });
-          }
+}
