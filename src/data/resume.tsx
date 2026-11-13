@@ -5,7 +5,7 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 // number never goes stale. Rendered as "14+" in the intro.
 const CAREER_START_YEAR = 2012;
 const CAREER_START_MONTH = 8; // September, 0-based
-const yearsOfExperience = (() => {
+export const yearsOfExperience = (() => {
   const now = new Date();
   let years = now.getFullYear() - CAREER_START_YEAR;
   if (now.getMonth() < CAREER_START_MONTH) years -= 1;

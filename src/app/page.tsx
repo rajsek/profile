@@ -13,10 +13,9 @@ import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
 
-// Resume PDF download: disabled until the file is supplied. To enable, drop
-// resume.pdf into /public and set RESUME_AVAILABLE to true - the button then
-// links to /resume.pdf.
-const RESUME_AVAILABLE = false;
+// Resume PDF is generated on demand by /api/resume (same data and years-of-
+// experience logic as the hero), so the download never goes stale.
+const RESUME_AVAILABLE = true;
 
 export default function Page() {
   return (
@@ -38,7 +37,7 @@ export default function Page() {
               />
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
                 {RESUME_AVAILABLE ? (
-                  <Link href="/resume.pdf" target="_blank">
+                  <Link href="/api/resume" target="_blank">
                     <Button variant="outline" className="mt-2 gap-2">
                       <DownloadIcon className="size-4" />
                       Download resume
