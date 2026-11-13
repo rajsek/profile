@@ -6,10 +6,15 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
+import { DownloadIcon } from "lucide-react";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
+
+// Resume PDF is generated on demand by /api/resume (same data and years-of-
+// experience logic as the hero), so the download never goes stale.
+const RESUME_AVAILABLE = true;
 
 export default function Page() {
   return (
@@ -29,6 +34,24 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
+              <BlurFade delay={BLUR_FADE_DELAY * 2} className="pt-1">
+                {RESUME_AVAILABLE ? (
+                  <Link href="/api/resume" target="_blank">
+                    <Badge className="flex w-fit gap-2 px-2 py-1 text-[10px]">
+                      <DownloadIcon className="size-3" />
+                      Download resume
+                    </Badge>
+                  </Link>
+                ) : (
+                  <Badge
+                    className="flex w-fit gap-2 px-2 py-1 text-[10px] opacity-50"
+                    title="Resume PDF will be added soon"
+                  >
+                    <DownloadIcon className="size-3" />
+                    Download resume
+                  </Badge>
+                )}
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
@@ -117,10 +140,10 @@ export default function Page() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  Hackathons & Presntation
+                  Hackathons & Talks
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  I like building things and present it audiance
+                  Building and sharing what I learn
                 </h2>
                 {/* <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   During my time in university, I attended{" "}
@@ -147,6 +170,41 @@ export default function Page() {
                     dates={project.dates}
                     image={project.image}
                     links={project.links}
+                  />
+                </BlurFade>
+              ))}
+            </ul>
+          </BlurFade>
+        </div>
+      </section>
+      <section id="awards">
+        <div className="space-y-12 w-full py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 14}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  Awards
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Awards & Recognition
+                </h2>
+              </div>
+            </div>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 15}>
+            <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
+              {DATA.awards.map((award, id) => (
+                <BlurFade
+                  key={award.title + award.dates}
+                  delay={BLUR_FADE_DELAY * 16 + id * 0.05}
+                >
+                  <HackathonCard
+                    title={award.title}
+                    description={award.description}
+                    location={award.location}
+                    dates={award.dates}
+                    image={award.image}
+                    links={award.links}
                   />
                 </BlurFade>
               ))}
@@ -206,12 +264,12 @@ export default function Page() {
                 Get in Touch
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to chat? Just shoot me a dm{" "}
+                Let’s talk about full-stack engineering, AI agents or security.{" "}
                 <Link
                   href={DATA.contact.social.LinkedIn.url}
                   className="text-blue-500 hover:underline"
                 >
-                  with a direct question on LinkedIn
+                  Message me on LinkedIn.
                 </Link>
               </p>
             </div>
