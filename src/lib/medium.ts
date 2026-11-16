@@ -10,7 +10,10 @@ export type MediumPost = {
   date: string; // ISO
   excerpt: string;
   tags: string[];
+  image?: string; // cover image URL (Medium CDN)
 };
+
+import archive from "@/data/medium-posts.json";
 
 // Last good result, kept in memory so a failed refresh does not blank the page.
 let lastGood: MediumPost[] = [];
@@ -57,6 +60,11 @@ function excerptFrom(html: string): string {
   return text.length > 220 ? text.slice(0, 217).replace(/\s+\S*$/, "") + "..." : text;
 }
 
+function firstImage(html: string): string | undefined {
+  const m = html.match(/<img[^>]+src="(https:\/\/[^"]+)"/);
+  return m ? decode(m[1]) : undefined;
+}
+
 export function parseFeed(xml: string): MediumPost[] {
   const items = xml.split("<item>").slice(1);
   const posts: MediumPost[] = [];
@@ -77,9 +85,21 @@ export function parseFeed(xml: string): MediumPost[] {
     const tags = Array.from(block.matchAll(/<category>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/category>/g))
       .map((m) => m[1].trim())
       .slice(0, 3);
-    posts.push({ title: decode(title), url, date: d.toISOString(), excerpt: content ? excerptFrom(content) : snippet ? textOf(snippet[1]) : "", tags });
+    posts.push({ title: decode(title), url, date: d.toISOString(), excerpt: content ? excerptFrom(content) : snippet ? textOf(snippet[1]) : "", tags, image: firstImage(content) ?? firstImage(desc) });
   }
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+function keyOf(url: string) {
+  return url.split("?")[0].replace(/\/$/, "");
+}
+
+// Live RSS (latest ~10) wins; older posts come from the committed archive.
+export function mergePosts(live: MediumPost[], saved: MediumPost[]): MediumPost[] {
+  const map = new Map<string, MediumPost>();
+  for (const p of saved) map.set(keyOf(p.url), p);
+  for (const p of live) map.set(keyOf(p.url), { ...map.get(keyOf(p.url)), ...p });
+  return Array.from(map.values()).sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export async function getMediumPosts(): Promise<{ posts: MediumPost[]; stale: boolean }> {
@@ -91,10 +111,11 @@ export async function getMediumPosts(): Promise<{ posts: MediumPost[]; stale: bo
     if (!res.ok) throw new Error(`Medium feed ${res.status}`);
     const posts = parseFeed(await res.text());
     if (posts.length === 0) throw new Error("Medium feed had no posts");
-    lastGood = posts;
-    return { posts, stale: false };
+    const merged = mergePosts(posts, archive as MediumPost[]);
+    lastGood = merged;
+    return { posts: merged, stale: false };
   } catch (e) {
     console.warn("medium feed failed:", e);
-    return { posts: lastGood, stale: true };
+    return { posts: lastGood.length ? lastGood : mergePosts([], archive as MediumPost[]), stale: true };
   }
 }

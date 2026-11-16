@@ -39,7 +39,7 @@ export default async function BlogPage() {
       <BlurFade delay={BLUR_FADE_DELAY}>
         <h1 className="font-medium text-2xl mb-2 tracking-tighter">blog</h1>
         <p className="mb-8 text-sm text-muted-foreground">
-          I write on Medium. Latest posts are listed here automatically.
+          I write on Medium. New posts show up here automatically.
         </p>
       </BlurFade>
 
@@ -50,22 +50,43 @@ export default async function BlogPage() {
           </p>
         </BlurFade>
       ) : (
-        posts.map((post, id) => (
-          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.url}>
-            <a
-              className="flex flex-col space-y-1 mb-6"
-              href={post.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p className="tracking-tight font-medium">{post.title}</p>
-              <p className="text-xs text-muted-foreground">{formatDate(post.date)}</p>
-              {post.excerpt ? (
-                <p className="text-sm text-muted-foreground">{post.excerpt}</p>
-              ) : null}
-            </a>
-          </BlurFade>
-        ))
+        <ul className="mb-8 grid gap-5 sm:grid-cols-2">
+          {posts.map((post, id) => (
+            <li key={post.url}>
+              <BlurFade delay={BLUR_FADE_DELAY * 2 + Math.min(id, 8) * 0.04}>
+                <a
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-full flex-col overflow-hidden rounded-lg border bg-card transition-colors hover:bg-muted/50"
+                >
+                  {post.image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={post.image}
+                      alt=""
+                      loading={id < 2 ? "eager" : "lazy"}
+                      referrerPolicy="no-referrer"
+                      className="aspect-[16/9] w-full object-cover"
+                    />
+                  ) : (
+                    <div className="aspect-[16/9] w-full bg-muted" aria-hidden="true" />
+                  )}
+                  <div className="flex flex-1 flex-col gap-1 p-4">
+                    <p className="text-xs text-muted-foreground">{formatDate(post.date)}</p>
+                    <h2 className="font-medium leading-snug tracking-tight">{post.title}</h2>
+                    {post.excerpt ? (
+                      <p className="line-clamp-3 text-sm text-muted-foreground">{post.excerpt}</p>
+                    ) : null}
+                    <span className="mt-auto pt-2 text-sm underline-offset-2 group-hover:underline">
+                      Read on Medium
+                    </span>
+                  </div>
+                </a>
+              </BlurFade>
+            </li>
+          ))}
+        </ul>
       )}
 
       <BlurFade delay={BLUR_FADE_DELAY * 3 + posts.length * 0.05}>
