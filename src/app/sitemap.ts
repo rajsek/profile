@@ -9,7 +9,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE}/`, changeFrequency: "monthly", priority: 1 },
     { url: `${SITE}/resumes`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE}/blog`, changeFrequency: "monthly", priority: 0.5 },
-    ...posts.map((p: { slug: string }) => ({
+    ...posts
+      .filter((p: { slug: string }) => p.slug !== "hello-world") // placeholder post
+      .map((p: { slug: string }) => ({
       url: `${SITE}/blog/${p.slug}`,
       changeFrequency: "yearly" as const,
       priority: 0.3,
